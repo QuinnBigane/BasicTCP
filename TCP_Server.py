@@ -9,13 +9,12 @@ def Main():
     s.listen(1)
     c, addr = s.accept()
     while True:
-        print("Hello\n")
+        print("Waiting To Recv")
         data = c.recv(1024)
         if not data:
             break
         data = str(data).upper()
-        #c.send(data)
-        print("%s", data)
+        print(data)
     c.close()
 if __name__ == '__main__':
     Main()
