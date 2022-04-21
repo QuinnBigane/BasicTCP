@@ -47,7 +47,7 @@ def Main():
         messages[toks[3]] = f"{toks[1]} {toks[5]}"
     
     #Number of messages expected
-    messages_expected = 10
+    messages_expected = 1000
     messages_recv = 0
     avg_latency = 0
     #Loop through all messages parsing info

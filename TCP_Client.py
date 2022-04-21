@@ -133,7 +133,7 @@ def Main():
         })
 
     msgs_sent = 0
-    while msgs_sent < 10:
+    while msgs_sent < 1000:
         if not __debug__:
             #code to skip a message     
             if msgs_sent in [7,11,98,86]:
