@@ -13,10 +13,6 @@ it will parse those messages and determine the reliability
 percentage and average latency of the connection.
 """
 
-#TODO: Parse all the recieved messages for reliability percentages based on ID
-#TODO: Parse all the recieved messages for a latency based on timestamps
-
-
 import socket 
 import time
 
@@ -43,7 +39,7 @@ def Main():
             break
 
         #add a timestamp of when we received
-        recv_time = str(time.time())
+        recv_time = str(round(time.time()*1000))
         data = str(data).upper()
         final = f"recieved: {recv_time} {data}"
         #parse that info
@@ -51,20 +47,24 @@ def Main():
         #tok 1 is recv'd time, tok 3 is ID, tok 5 is sent time
         messages[toks[3]] = f"{toks[1]} {toks[5]}"
     
-    
+    #Number of messages expected
     messages_expected = 10
     messages_recv = 0
     avg_latency = 0
+    #Loop through all messages parsing info
     for i in range(messages_expected):
         key = str(i)
         if key in messages.keys():
             messages_recv +=1
             message_toks = messages[key].split()
             avg_latency += float(message_toks[0]) - float(message_toks[1])
+
+    #calculate final latency
     avg_latency /= messages_recv
     reliability = messages_recv/messages_expected
-    print(f"Reliability: {reliability * 100}")
-    print(f"Average Latency: {avg_latency}")
+    #print 
+    print(f"Reliability: {reliability * 100}%")
+    print(f"Average Latency: {round(avg_latency,2)}ms")
     c.close()
 if __name__ == '__main__':
     Main()
