@@ -18,8 +18,7 @@ import time
 
 def Main():
     #Source IP (rotuer LAN IP)
-    #host = '192.168.1.120'
-    host = '172.17.7.175'
+    host = '192.168.1.120'
     #Source Port
     port = 50002
 

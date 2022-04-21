@@ -17,8 +17,7 @@ import time
 
 def Main():
     #Destination IP (Router WAN IP)
-    #host = '76.218.254.93' 
-    host = '172.17.7.175'
+    host = '76.218.254.93' 
     #Destination port (Port open on router)
     port = 50002 
   
