@@ -19,6 +19,7 @@ import time
 def Main():
     #Source IP (rotuer LAN IP)
     host = '192.168.1.120'
+#    host = '192.168.2.230'
     #Source Port
     port = 50002
 
@@ -56,6 +57,7 @@ def Main():
         if key in messages.keys():
             messages_recv +=1
             message_toks = messages[key].split()
+            print(float(message_toks[0]) - float(message_toks[1]))
             avg_latency += float(message_toks[0]) - float(message_toks[1])
 
     #calculate final latency

@@ -17,7 +17,8 @@ import time
 
 def Main():
     #Destination IP (Router WAN IP)
-    host = '76.218.254.93' 
+#    host = '76.218.254.93' 
+    host = '192.168.2.230'
     #Destination port (Port open on router)
     port = 50002 
   
@@ -133,7 +134,7 @@ def Main():
         })
 
     msgs_sent = 0
-    while msgs_sent < 1000:
+    while msgs_sent < 10000:
         if not __debug__:
             #code to skip a message     
             if msgs_sent in [7,11,98,86]:
